@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main() {
+  int saldo = 1000; // saldo disponivel (fixo, para simulacao)
+  int valor;
+  int notas100, notas50, notas20, notas10, notas5;
+  printf("Digite o valor do saque: ");
+  scanf("%d", &valor);
+
+  if (valor % 5 == 0 && valor <= saldo) {
+    notas100 = valor / 100;
+    valor = valor % 100;
+
+    notas50 = valor / 50;
+    valor = valor % 50;
+
+    notas20 = valor / 20;
+    valor = valor % 20;
+    
+    notas10 = valor / 10;
+    valor = valor % 10;
+
+    notas5 = valor / 5;
+
+    printf("Notas entregues:\n");
+    if (notas100 > 0) printf("%d nota(s) de 100\n", notas100);
+    if (notas50 > 0) printf("%d nota(s) de 50\n", notas50);
+    if (notas20 > 0) printf("%d nota(s) de 20\n", notas20);
+    if (notas10 > 0) printf("%d nota(s) de 10\n", notas10);
+    if (notas5  > 0) printf("%d nota(s) de 5\n", notas5);
+  } else {
+    printf("Erro: valor invalido. O valor deve ser multiplo de 5 ");
+    printf("e menor ou igual ao saldo disponivel (%d).\n", saldo);
+  }
+
+  return 0;
+}
